@@ -7,21 +7,33 @@ import (
 )
 
 func main() {
-	cfg := config{
+	cfg := &config{
 		modKey: "Super",
 	}
-	cfg.r()
+	cfg.bindNav()
 }
 
 type config struct {
-	modKey string
+	modKey      string
+	powerModKey string
+	altModKey   string
+
+	nextKey  string
+	prevKey  string
+	leftKey  string
+	rightKey string
 }
 
-func (c *config) r(args ...string) {
+func (c *config) rDef(args ...string) {
 	cmd := exec.Command("riverctl", args...)
 	if out, err := cmd.CombinedOutput(); err != nil {
 		fmt.Printf("riverctl %v : %v", args, err)
 		fmt.Printf("%v", string(out))
 		os.Exit(2)
 	}
+}
+
+func (c *config) rMap(args ...string) {
+	args = append([]string{"map"}, args...)
+	c.rDef(args...)
 }
