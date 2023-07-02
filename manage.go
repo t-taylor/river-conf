@@ -28,4 +28,11 @@ func (c *config) bindManage() {
 	c.rDef("map-pointer", n, c.modKey, "BTN_RIGHT", "resize-view")
 
 	c.rMap(n, c.modKey, "P", "toggle-float")
+
+	c.rMap(n, c.modKey, "Z", "toggle-fullscreen")
+
+	c.rMap(n, c.modKey, "Up", "send-layout-cmd", "rivertile", "main-location top")
+	c.rMap(n, c.modKey, "Right", "send-layout-cmd", "rivertile", "main-location right")
+	c.rMap(n, c.modKey, "Down", "send-layout-cmd", "rivertile", "main-location bottom")
+	c.rMap(n, c.modKey, "Left", "send-layout-cmd", "rivertile", "main-location left")
 }

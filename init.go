@@ -29,6 +29,7 @@ func main() {
 
 	cfg.bindManage()
 	cfg.bindStart()
+	cfg.setupLayouts()
 }
 
 type config struct {
